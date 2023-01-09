@@ -1,7 +1,8 @@
 require 'Date'
 class Item 
   def initialize
-
+    @published_date = nil
+    @archived = false
   end
 
   def can_be_archived?

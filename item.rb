@@ -1,7 +1,4 @@
 require 'Date'
-class Item
-  def initialize
-    @published_date = nil
 class Item 
   attr_accessor :author, :source, :label, :genre
   def initialize

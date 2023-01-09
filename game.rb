@@ -7,11 +7,10 @@ class Game < Item
     super
     @multiplayer = multiplayer
     @last_played_at = last_played_at
+    @archived = can_be_archived?
   end
 
   def can_be_archived?
-    return true if can_be_archived? && last_played_at >= 365 * 2
-
-    false
+    @archived = super && last_played_at >= 365 * 2
   end
 end

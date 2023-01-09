@@ -1,4 +1,4 @@
-require 'Date'
+require 'date'
 class Item 
   attr_accessor :author, :source, :label, :genre
   def initialize
@@ -12,7 +12,7 @@ class Item
   end
 
   def can_be_archived?
-    (Date.today - Date.parse(@published_date)).to_i >= 365 * 10
+    (Date.today - @published_date).to_i >= 365 * 10
   end
 
   def move_to_archive

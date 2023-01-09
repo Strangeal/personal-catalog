@@ -12,6 +12,13 @@ class Item
     @archived = false
   end
 
+  def add_label(label)
+    label.is_a?(Label) && @label.nil? && (
+      @label = label
+      label.add_item(self)
+    )
+  end
+
   def can_be_archived?
     (Date.today - @published_date).to_i >= 365 * 10
   end

@@ -5,7 +5,7 @@ class Item
   end
 
   def can_be_archived?
-    (Date.today - Date.parse(@published_date)) >= 365 * 10
+    (Date.today - Date.parse(@published_date)).to_i >= 365 * 10
   end 
 
   def move_to_archive

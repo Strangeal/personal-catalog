@@ -12,7 +12,7 @@ class Label < Item
   end
 
   def add_item(item)
-    (item.is_a?(Item) && @items.include?(item)) || (@items << item)
     item.add_label(self)
+    @items << item unless @items.include?(item)
   end
 end

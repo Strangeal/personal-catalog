@@ -13,10 +13,8 @@ class Item
   end
 
   def add_label(label)
-    label.is_a?(Label) && @label.nil? && (
-      @label = label
-      label.add_item(self)
-    )
+    @label = label
+    label.items.push(self) unless label.items.include?(self)
   end
 
   def can_be_archived?

@@ -1,7 +1,7 @@
 require_relative 'app'
 
 class Options
-  # Import all Ui methods in here
+  Book_label_handler book_label_handler = Book_label_handler.new
   # rubocop:disable Metrics/CyclomaticComplexity
   def options(user_input)
     case user_input

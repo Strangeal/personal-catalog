@@ -1,4 +1,4 @@
-class Book_label_handler
+class BookLabelHandler
   def initialize
     @books = []
     @labels = []

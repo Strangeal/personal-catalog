@@ -7,5 +7,4 @@ class App
     exit
   end
 
-
 end

@@ -1,5 +1,5 @@
-require_relative 'app.rb'
-require_relative 'prompt.rb'
+require_relative 'app'
+require_relative 'prompt'
 
 def main
   puts "\n Welcome👋 to School library App!"

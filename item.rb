@@ -1,6 +1,7 @@
 require 'date'
-class Item 
+class Item
   attr_accessor :author, :source, :label, :genre
+
   def initialize
     @id = Random.rand(1..1000)
     @author = nil

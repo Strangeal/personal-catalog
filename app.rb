@@ -6,5 +6,4 @@ class App
     puts "\n Thanks for using this app"
     exit
   end
-
 end

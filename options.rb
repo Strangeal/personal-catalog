@@ -14,7 +14,7 @@ class Options
     when 8 then puts 'List all sources'
     when 9 then app.add_book
     when 10 then puts 'Add a music album'
-    when 11 then puts 'Add a movie'
+    when 11 then puts app.add_author
     when 12 then puts app.add_game
     when 13 then puts 'Exit'
     else

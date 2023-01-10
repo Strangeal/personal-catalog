@@ -11,7 +11,7 @@ require_relative 'save'
 class App
   def initialize
     @game = Read.new.read_game
-    @books = []
+    @books = Read.new.read_author
     @labels = []
     @game = []
     @authors = []

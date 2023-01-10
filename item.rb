@@ -3,12 +3,12 @@ require_relative 'author'
 class Item
   attr_accessor :id, :publish_date, :archived
 
-  def initialize(publish_date, archived: false)
+  def initialize(_publish_date, archived: false)
     @id = Random.rand(1..1000)
     @author = nil
     @label = nil
     @genre = nil
-    @publish_date = Date.parse(publish_date)
+    @publish_date = publish_date
     @archived = archived
   end
 
@@ -28,7 +28,7 @@ class Item
   end
 
   def can_be_archived?
-    (Date.today.year - @publish_date.year) > 10
+    (Date.today.year - Date.parse(@publish_date).year) > 10
   end
 
   def move_to_archive

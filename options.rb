@@ -1,12 +1,10 @@
 require_relative 'app'
-require_relative 'book_label_handler'
-
 class Options
   # BookLabelHandler book_label_handler = Book_label_handler.new
   # rubocop:disable Metrics/CyclomaticComplexity
   def options(user_input)
     case user_input
-    when 1 then Book_label_handler.new.list_all_books
+    when 1 then App.new.list_all_books
     when 2 then puts 'List all music albums'
     when 3 then puts 'List all movies'
     when 4 then puts 'List of games'

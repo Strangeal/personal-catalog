@@ -2,6 +2,8 @@ require_relative 'prompt'
 require_relative 'item'
 require_relative 'game'
 require_relative 'menu'
+require_relative 'book'
+require_relative 'label'
 
 class App
   # Exit
@@ -13,7 +15,19 @@ class App
     @labels = []
   end
 
-  def add_book(book)
+  def add_book
+    print 'publisher: '
+    publisher = gets.chomp
+    print 'date of publish: '
+    publish_date = gets.chomp
+    print 'cover state: '
+    cover_state = gets.chomp
+    label = handle_label
+    book = Book.new(publisher, cover_state, publish_date)
+    label.add_item(book)
+    @labels << label unless @labels.include?(label)
+    @books << book
+    puts 'Book added successfully'
   end
 
   def add_label(label)

@@ -16,7 +16,7 @@ class App
     @books = []
     @labels = []
     @genres = []
-    @music_album = [] || get_music_data(read_music('./data/music.json'), @genres)
+    @music_album = Read.get_music_data(Read.read_file('./data/music.json'), @genres)
     @game = []
     @authors = []
   end
@@ -163,6 +163,7 @@ class App
 
   def exit_app
     Save.new.save_game(@game)
+    Save.save_music_to_file(@music_album, './data/music.json')
     puts "\n Thanks for using this app"
     exit
   end

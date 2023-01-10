@@ -7,7 +7,7 @@ class App
     @books = []
     @labels = []
   end
-  
+
   def list_all_books
     puts 'book list'
   end

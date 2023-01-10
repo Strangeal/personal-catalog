@@ -5,9 +5,15 @@ require_relative 'menu'
 
 class App
   # Exit
+  def list_all_books
+    puts 'book list'
+  end
+
   def initialize
     @game = []
     @authors = []
+    @books = []
+    @labels = []
   end
 
   def default_return

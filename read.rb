@@ -1,6 +1,19 @@
 require 'json'
 
 class Read
+  def load_books_from_file
+    books = []
+    return games unless File.exist?('./data/books.json')
+
+    JSON.parse(File.read('data/books.json')).map do |book|
+      publisher = book['publisher']
+      publish_date = book['publish_date']
+      cover_state = book['cover_state']
+      @books.push(Book.new(publisher, cover_state, publish_date))
+    end
+    books
+  end
+
   def read_game
     games = []
     return games unless File.exist?('./data/game.json')

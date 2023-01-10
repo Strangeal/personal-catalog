@@ -1,10 +1,10 @@
 require_relative 'item'
 
-class Author < Item
-  attr_accessor :first_name, :second_name, :items
+class Author
+  attr_accessor :first_name, :second_name
+  attr_reader :items
 
   def initialize(first_name, second_name)
-    super
     @int = Random.rand(1..1000)
     @first_name = first_name
     @second_name = second_name
@@ -12,7 +12,7 @@ class Author < Item
   end
 
   def add_item(item)
-    @items << item
-    Item.new(item, self)
+    @items.push(item)
+    item.author = self
   end
 end

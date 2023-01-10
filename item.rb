@@ -1,4 +1,5 @@
 require 'date'
+require_relative 'author'
 class Item
   attr_accessor :author, :source, :label, :genre
 
@@ -10,6 +11,11 @@ class Item
     @genre = nil
     @publish_date = Date.today
     @archived = false
+  end
+
+  def author=(author)
+    @author = author
+    author.items << self unless author.items.include?(self)
   end
 
   def can_be_archived?

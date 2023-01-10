@@ -64,8 +64,23 @@ class App
     default_return
   end
 
-  def add_musicalbum(publish_date, on_spotify)
-    @music_album << MusicAlbum.new(publish_date, on_spotify)
+  def add_musicalbum
+    puts "Enter Publish Date:"
+    publish_date = gets.chomp
+    puts "Is The Song On Spotify: [Y/N]"
+    on_spotify = gets.chomp
+    @music_album << MusicAlbum.new(publish_date, check_input(on_spotify))
+  end
+
+  def list_all_music
+    @music_album.each_with_index do |song|
+      puts "#{i} - Publish Date: #{song.publish_date}"
+    end
+  end
+
+  def check_input(input)
+    true if input.upcase == "Y"
+    false
   end
 
   def exit_app

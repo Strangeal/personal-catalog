@@ -2,11 +2,12 @@ require_relative 'prompt'
 require_relative 'item'
 require_relative 'game'
 require_relative 'menu'
+require_relative 'read'
+require_relative 'save'
 
 class App
-  # Exit
   def initialize
-    @game = []
+    @game = Read.new.read_game
     @authors = []
   end
 
@@ -57,6 +58,7 @@ class App
   end
 
   def exit_app
+    Save.new.save_game(@game)
     puts "\n Thanks for using this app"
     exit
   end

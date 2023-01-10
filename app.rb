@@ -128,11 +128,11 @@ class App
   end
 
   def add_musicalbum
-    puts "Enter Publish Date:"
+    puts 'Enter Publish Date:'
     publish_date = gets.chomp
-    puts "Is The Song On Spotify: [Y/N]"
+    puts 'Is The Song On Spotify: [Y/N]'
     on_spotify = gets.chomp
-    puts "Specify The Genre:"
+    puts 'Specify The Genre:'
     input_genre = gets.chomp
     genre = Genre.new(input_genre)
     @genres << genre
@@ -157,7 +157,7 @@ class App
   end
 
   def check_input(input)
-    true if input.upcase == "Y"
+    true if input.upcase == 'Y'
     false
   end
 

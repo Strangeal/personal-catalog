@@ -12,8 +12,7 @@ class Save
     books.each do |book|
       book_array << { publisher: book.publisher,
                       publish_date: book.publish_date,
-                      cover_state: book.cover_state 
-                    }
+                      cover_state: book.cover_state }
     end
     File.write('./data/books.json', JSON.pretty_generate(book_array)) unless book_array.empty?
   end
@@ -22,8 +21,7 @@ class Save
     label_array = []
     labels.each do |label|
       label_array << { title: label.title,
-                       color: label.color,
-                     }
+                       color: label.color }
     end
     File.write('./data/labels.json', JSON.pretty_generate(label_array)) unless label_array.empty?
   end

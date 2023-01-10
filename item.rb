@@ -3,7 +3,7 @@ require_relative 'author'
 class Item
   attr_accessor :id, :publish_date, :archived
 
-  def initialize(publish_date, archived: false)
+  def initialize(_publish_date, archived: false)
     @id = Random.rand(1..1000)
     @author = nil
     @label = nil

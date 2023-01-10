@@ -25,10 +25,9 @@ class Save
   def self.save_music_to_file(music_album, dir)
     music_hash_array = []
     music_album.each do |song|
-      music_hash_array << { publish_date: song.publish_date, 
-                            spotify: song.on_spotify, 
-                            genre: song.genre.name
-                          }
+      music_hash_array << { publish_date: song.publish_date,
+                            spotify: song.on_spotify,
+                            genre: song.genre.name }
     end
     File.write(dir, JSON.generate(music_hash_array))
   end

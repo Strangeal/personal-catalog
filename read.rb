@@ -17,6 +17,7 @@ class Read
 
   def self.read_file(dir)
     return [] unless File.exist?(dir)
+
     File.read(dir)
   end
 

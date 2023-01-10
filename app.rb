@@ -5,15 +5,29 @@ require_relative 'menu'
 
 class App
   # Exit
-  def list_all_books
-    puts 'book list'
-  end
-
+  
   def initialize
     @game = []
     @authors = []
     @books = []
     @labels = []
+  end
+
+  def add_book(book)
+  end
+
+  def add_label(label)
+    print 'label title: '
+    title = gets.chomp
+    print 'label color: '
+    color = gets.chomp
+    Label.new(title: title, color: color)
+  end
+  
+  def list_all_books
+  end
+
+  def list_all_labels
   end
 
   def default_return

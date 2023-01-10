@@ -2,6 +2,7 @@ require_relative 'prompt'
 require_relative 'item'
 require_relative 'game'
 require_relative 'menu'
+require_relative 'music_album'
 
 class App
   # Exit
@@ -14,6 +15,7 @@ class App
     @authors = []
     @books = []
     @labels = []
+    @music_album = []
   end
 
   def default_return
@@ -60,6 +62,10 @@ class App
       puts "#{i}) First-Name: #{list.first_name} Last-Name: #{list.second_name}"
     end
     default_return
+  end
+
+  def add_musicalbum(publish_date, on_spotify)
+    @music_album << MusicAlbum.new(publish_date, on_spotify)
   end
 
   def exit_app

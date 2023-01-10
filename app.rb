@@ -4,15 +4,25 @@ require_relative 'game'
 require_relative 'menu'
 require_relative 'book'
 require_relative 'label'
+require 'date'
 
 class App
   # Exit
-  
+
   def initialize
     @books = []
     @labels = []
     @game = []
     @authors = []
+  end
+
+  def list_all_books
+    puts "No Books available 😔" if @books.empty?
+    puts 'Available books'
+    @books.each_with_index do |book, index|
+        puts "#{index}) cover_state: #{book.cover_state}, publisher: #{book.publisher}, publish_date:#{book.publish_date}"
+    end
+    default_return
   end
 
   def add_book
@@ -30,12 +40,12 @@ class App
     puts 'Book added successfully'
   end
 
-  def add_label(label)
+  def add_label
     print 'label title: '
     title = gets.chomp
     print 'label color: '
     color = gets.chomp
-    Label.new(title: title, color: color)
+    Label.new(title, color)
   end
 
   def handle_label
@@ -55,17 +65,6 @@ class App
       end
     else
       add_label
-    end
-  end
-  
-  def list_all_books
-    if @books.empty?
-      puts 'YOU HAVE NOT ADDED ANY BOOKS YET'
-    else
-      @books.each_with_index do |book, index|
-        puts "#{index}) cover_state: #{book.cover_state}, publisher: #{book.publisher}, publish_date:#{book.publish_date}"
-      end
-      puts
     end
   end
 

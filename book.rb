@@ -5,7 +5,7 @@ class Book < Item
   attr_accessor :publisher, :cover_state, :archived, :publish_date
 
   def initialize(publisher, cover_state, publish_date)
-    super
+    super(publish_date)
     @publisher = publisher
     @cover_state = cover_state
     @publish_date = publish_date
@@ -15,10 +15,6 @@ class Book < Item
   private
 
   def can_be_archived?
-    @archived = if super || @cover_state == 'bad'
-                  true
-                else
-                  false
-                end
+    super || @cover_state == 'bad'
   end
 end

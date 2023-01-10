@@ -26,6 +26,16 @@ class App
     default_return
   end
 
+  def add_author
+    print 'First name: '
+    first_name = gets.chomp
+    print 'Second name: '
+    second_name = gets.chomp
+    author_data = Author.new(first_name, second_name)
+    @author << author_data
+    default_return
+  end
+
   def multiplayer?
     puts 'Multiple player game?[Y/N]'
     multiplayer = gets.chomp.upcase

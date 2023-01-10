@@ -14,6 +14,18 @@ class Read
     books
   end
 
+  def load_labels_from_file
+    @labels = []
+    return games unless File.exist?('./data/labels.json')
+    JSON.parse(File.read('data/labels.json')).map do |label|
+      title = label['title']
+      color = label['color']
+      new_label = Label.new(title, color)
+      @labels << new_label
+    end
+    labels
+  end
+
   def read_game
     games = []
     return games unless File.exist?('./data/game.json')

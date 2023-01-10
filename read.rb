@@ -3,25 +3,26 @@ require 'json'
 class Read
   def load_books_from_file
     books = []
-    return games unless File.exist?('./data/books.json')
+    return books unless File.exist?('./data/books.json')
 
     JSON.parse(File.read('data/books.json')).map do |book|
       publisher = book['publisher']
       publish_date = book['publish_date']
       cover_state = book['cover_state']
-      @books.push(Book.new(publisher, cover_state, publish_date))
+      books.push(Book.new(publisher, cover_state, publish_date))
     end
     books
   end
 
   def load_labels_from_file
-    @labels = []
-    return games unless File.exist?('./data/labels.json')
+    labels = []
+    return labels unless File.exist?('./data/labels.json')
+
     JSON.parse(File.read('data/labels.json')).map do |label|
       title = label['title']
       color = label['color']
       new_label = Label.new(title, color)
-      @labels << new_label
+      labels << new_label
     end
     labels
   end

@@ -16,15 +16,6 @@ class App
     @authors = []
   end
 
-  def list_all_books
-    puts "No Books available 😔" if @books.empty?
-    puts 'Available books'
-    @books.each_with_index do |book, index|
-        puts "#{index}) cover_state: #{book.cover_state}, publisher: #{book.publisher}, publish_date:#{book.publish_date}"
-    end
-    default_return
-  end
-
   def add_book
     print 'publisher: '
     publisher = gets.chomp
@@ -66,6 +57,15 @@ class App
     else
       add_label
     end
+  end
+
+  def list_all_books
+    puts 'No Books available 😔' if @books.empty?
+    puts 'Available books'
+    @books.each_with_index do |book, index|
+      puts "#{index}) cover_state: #{book.cover_state}, publisher: #{book.publisher}, publish_date:#{book.publish_date}"
+    end
+    default_return
   end
 
   def list_all_labels

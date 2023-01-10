@@ -15,12 +15,13 @@ class Read
     games
   end
 
-  def read_music
-    return 'File does not exist!' unless File.exist?('./data/music.json')
-    File.read('./data/music.json')
+  def read_music(dir)
+    return 'File does not exist!' unless File.exist?(dir)
+    File.read(dir)
   end
 
-  def set_music_data(file_content, music_album, genres)
+  def get_music_data(file_content, genres)
+    music_album = []
     music_json_array = JSON.parse(file_content)
     music_json_array.each do |song|
       item_genre = Genre.new(song['genre'])
@@ -29,5 +30,6 @@ class Read
       genres << item_genre
       music_album << item_song
     end
+    music_album
   end
 end

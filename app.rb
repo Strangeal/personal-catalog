@@ -15,8 +15,8 @@ class App
     @game = Read.new.read_game
     @books = []
     @labels = []
-    @music_album = []
     @genres = []
+    @music_album = [] || get_music_data(read_music('./data/music.json'), @genres)
     @game = []
     @authors = []
   end

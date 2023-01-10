@@ -9,10 +9,10 @@ class App
   # Exit
   
   def initialize
-    @game = []
-    @authors = []
     @books = []
     @labels = []
+    @game = []
+    @authors = []
   end
 
   def add_book
@@ -38,7 +38,7 @@ class App
     Label.new(title: title, color: color)
   end
 
-  def handle_label(label)
+  def handle_label
     if @labels.any?
       print "enter 'N' to create a new label or 'S' to select an existing one"
       option = gets.chomp.upcase
@@ -59,6 +59,14 @@ class App
   end
   
   def list_all_books
+    if @books.empty?
+      puts 'YOU HAVE NOT ADDED ANY BOOKS YET'
+    else
+      @books.each_with_index do |book, index|
+        puts "#{index}) cover_state: #{book.cover_state}, publisher: #{book.publisher}, publish_date:#{book.publish_date}"
+      end
+      puts
+    end
   end
 
   def list_all_labels

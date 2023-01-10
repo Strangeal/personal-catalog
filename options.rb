@@ -8,7 +8,7 @@ class Options
     when 2 then puts app.list_all_music
     when 3 then puts 'List all movies'
     when 4 then puts app.list_games
-    when 5 then puts 'List all genres'
+    when 5 then puts app.list_all_genres
     when 6 then puts 'List all labels'
     when 7 then puts app.list_authors
     when 8 then puts 'List all sources'

@@ -3,6 +3,7 @@ require_relative 'item'
 require_relative 'game'
 require_relative 'menu'
 require_relative 'music_album'
+require_relative 'genre'
 
 class App
   # Exit
@@ -16,6 +17,7 @@ class App
     @books = []
     @labels = []
     @music_album = []
+    @genres = []
   end
 
   def default_return
@@ -69,13 +71,28 @@ class App
     publish_date = gets.chomp
     puts "Is The Song On Spotify: [Y/N]"
     on_spotify = gets.chomp
-    @music_album << MusicAlbum.new(publish_date, check_input(on_spotify))
+    puts "Specify The Genre:"
+    input_genre = gets.chomp
+    genre = Genre.new(input_genre)
+    @genres << genre
+    song = MusicAlbum.new(publish_date, check_input(on_spotify))
+    song.add_genre(genre)
+    @music_album << song
+    default_return
   end
 
   def list_all_music
     @music_album.each_with_index do |song, i|
       puts "#{i} - Publish Date: #{song.publish_date} ; Spotify: #{song.on_spotify}"
     end
+    default_return
+  end
+
+  def list_all_genres
+    @genres.each_with_index do |genre, i|
+      puts "#{i} - Genre: #{genre.name} "
+    end
+    default_return
   end
 
   def check_input(input)

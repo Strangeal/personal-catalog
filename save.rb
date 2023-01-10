@@ -18,6 +18,16 @@ class Save
     File.write('./data/books.json', JSON.pretty_generate(book_array)) unless book_array.empty?
   end
 
+  def save_label(labels)
+    label_array = []
+    labels.each do |label|
+      label_array << { title: label.title,
+                       color: label.color,
+                     }
+    end
+    File.write('./data/labels.json', JSON.pretty_generate(label_array)) unless label_array.empty?
+  end
+
   def save_game(game)
     game_arr = []
     game.each do |data|

@@ -7,6 +7,17 @@ class Save
     FileUtils.touch('./data/game.json') if !File.exist?('./data/game.json') && filename == 'game'
   end
 
+  def save_book(books)
+    book_array = []
+    books.each do |book|
+      book_array << { publisher: book.publisher,
+                      publish_date: book.publish_date,
+                      cover_state: book.cover_state 
+                    }
+    end
+    File.write('./data/books.json', JSON.pretty_generate(book_array)) unless book_array.empty?
+  end
+
   def save_game(game)
     game_arr = []
     game.each do |data|

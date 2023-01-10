@@ -8,7 +8,7 @@ class App
   def list_all_books
     puts 'book list'
   end
-  
+
   def initialize
     @game = []
     @authors = []

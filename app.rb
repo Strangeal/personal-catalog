@@ -73,8 +73,8 @@ class App
   end
 
   def list_all_music
-    @music_album.each_with_index do |song|
-      puts "#{i} - Publish Date: #{song.publish_date}"
+    @music_album.each_with_index do |song, i|
+      puts "#{i} - Publish Date: #{song.publish_date} ; Spotify: #{song.on_spotify}"
     end
   end
 

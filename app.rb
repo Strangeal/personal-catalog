@@ -48,6 +48,11 @@ class App
   end
 
   def list_all_labels
+    if @labels.empty?
+      puts 'You have not added any labels yet'.upcase
+    else
+      @labels.each_with_index { |label, index| puts "#{index}) Title: #{label.title}, Color: #{label.color}" }
+    end
   end
 
   def default_return

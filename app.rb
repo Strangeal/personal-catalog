@@ -13,8 +13,8 @@ require_relative 'save'
 class App
   def initialize
     @game = Read.new.read_game
-    @books = []
-    @labels = []
+    @books = Read.new.load_books_from_file
+    @labels = Read.new.load_labels_from_file
     @genres = []
     @music_album = Read.get_music_data(Read.read_file('./data/music.json'), @genres)
     @game = []
@@ -162,6 +162,8 @@ class App
   end
 
   def exit_app
+    Save.new.save_book(@books)
+    Save.new.save_label(@labels)
     Save.new.save_game(@game)
     Save.save_music_to_file(@music_album, './data/music.json')
     puts "\n Thanks for using this app"

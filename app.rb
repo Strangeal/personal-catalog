@@ -23,6 +23,26 @@ class App
     color = gets.chomp
     Label.new(title: title, color: color)
   end
+
+  def handle_label(label)
+    if @labels.any?
+      print "enter 'N' to create a new label or 'S' to select an existing one"
+      option = gets.chomp.upcase
+      case option
+      when 'N'
+        add_label
+      when 'S'
+        puts 'select a label from the list by index'
+        list_all_labels
+        option = gets.chomp
+        @labels[option.to_i]
+      else
+        print 'invalid entry'
+      end
+    else
+      add_label
+    end
+  end
   
   def list_all_books
   end

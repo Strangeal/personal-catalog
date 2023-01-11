@@ -13,12 +13,11 @@ require_relative 'save'
 class App
   def initialize
     @game = Read.new.read_game
-    @books = []
-    @labels = []
-    @music_album = []
+    @books = Read.new.load_books_from_file
+    @labels = Read.new.load_labels_from_file
     @genres = []
-    @game = []
-    @authors = []
+    @music_album = Read.get_music_data(Read.read_file('./data/music.json'), @genres)
+    @authors = Read.new.read_author
   end
 
   def add_book
@@ -97,6 +96,16 @@ class App
     default_return
   end
 
+  def add_author
+    print 'First name: '
+    first_name = gets.chomp
+    print 'Second name: '
+    second_name = gets.chomp
+    author_data = Author.new(first_name, second_name)
+    @authors << author_data
+    default_return
+  end
+
   def multiplayer?
     puts 'Multiple player game?[Y/N]'
     multiplayer = gets.chomp.upcase
@@ -162,7 +171,11 @@ class App
   end
 
   def exit_app
+    Save.new.save_book(@books)
+    Save.new.save_label(@labels)
     Save.new.save_game(@game)
+    Save.save_music_to_file(@music_album, './data/music.json')
+    Save.new.save_author(@authors)
     puts "\n Thanks for using this app"
     exit
   end

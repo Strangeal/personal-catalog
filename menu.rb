@@ -11,9 +11,9 @@ class LibraryMenu
     8 - List all sources
     9 - Add a book
     10 - Add a music album
-    11 -  Add a movie
+    11 - Add a author
     12 - Add a game
-    13  - Exit
+    13 - Exit
     '
     puts list
   end

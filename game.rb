@@ -10,7 +10,7 @@ class Game < Item
     @last_played_at = last_played_at
     @archived = can_be_archived?
   end
-  
+
   private
 
   def can_be_archived?

@@ -22,6 +22,10 @@
 
 > In this project, we created a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games
 
+### The App UML Class Diagram
+
+![](./uml_diagram.png)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>

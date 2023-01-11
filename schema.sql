@@ -1,3 +1,29 @@
+CREATE DATABASE 'catalog';
+
+-- Create a Item class table
+CREATE TABLE item (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  genre TEXT,
+  author TEXT,
+  label TEXT,
+  publish_date DATE,
+  archived BOOLEAN,
+);
+
+CREATE TABLE books(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  publisher VARCHAR(255),
+  cover_state VARCHAR(255),
+  FOREIGN KEY(id) REFERENCES item(id)
+);
+
+CREATE TABLE labels(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(255),
+  color VARCHAR(255),
+  PRIMARY KEY(id)
+);
+
 CREATE TABLE games (
   id INT GENERATED ALWAYS AS IDENTITY,
   archived BOOLEAN,

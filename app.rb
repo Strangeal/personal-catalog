@@ -46,7 +46,7 @@ class App
 
   def handle_label
     if @labels.any?
-      print "enter 'N' to create a new label or 'S' to select an existing one"
+      print "enter 'N' to create a new label or 'S' to select an existing one \n"
       option = gets.chomp.upcase
       case option
       when 'N'
@@ -125,8 +125,8 @@ class App
 
   def list_games
     puts "\n No Games available 😔".upcas.light_red if @game.empty?
+    puts 'Available games '.upcase
     @game.each_with_index do |list, i|
-      puts 'Available games '.upcase
       puts "#{i}) Multiplayer: #{list.multiplayer} | Last-Played: #{list.last_played_at}"
     end
     default_return

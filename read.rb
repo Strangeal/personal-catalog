@@ -61,7 +61,8 @@ class Read
   end
 
   def self.get_music_data(file_content, genres)
-    return [] if !file_content
+    return [] unless file_content
+
     music_album = []
     music_json_array = JSON.parse(file_content)
     music_json_array.each do |song|

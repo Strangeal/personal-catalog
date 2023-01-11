@@ -1,18 +1,15 @@
 require_relative '../label'
+require_relative '../item'
 
 describe 'Unit Tests for Label Class' do
   before :each do
     @label = Label.new('ruby', 'blue')
-    @item = Item.new('2011-12-2', false)
+    @item = Item.new('2011-12-2', archived: false)
   end
 
   context 'initialize object' do
     it 'should be an instance of Label' do
       expect(@label).to be_instance_of Label
-    end
-
-    it 'should be a kind of Item' do
-      expect(@label).to be_kind_of Item
     end
   end
 

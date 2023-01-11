@@ -86,6 +86,10 @@ To run the project, follow these instructions:
 - After Cloning this repo to your local machine.
 - To get it running in your terminal, run it in your IDE
 
+### Demo Video
+
+[Catalog of my things](https://drive.google.com/file/d/1b0IEjy_urPBl8pkqx7yKP6bupoYsDwEt/view?usp=sharing)
+
 ### Run tests
 
 To run tests, run the following command:

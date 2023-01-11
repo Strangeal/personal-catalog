@@ -55,12 +55,13 @@ class Read
   end
 
   def self.read_file(dir)
-    return [] unless File.exist?(dir)
+    return false unless File.exist?(dir)
 
     File.read(dir)
   end
 
   def self.get_music_data(file_content, genres)
+    return [] if !file_content
     music_album = []
     music_json_array = JSON.parse(file_content)
     music_json_array.each do |song|

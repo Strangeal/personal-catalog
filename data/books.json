@@ -1,12 +1,7 @@
 [
   {
-    "publisher": "orelly",
-    "publish_date": "22/5/1222",
-    "cover_state": "bad"
-  },
-  {
-    "publisher": "UB",
-    "publish_date": "9/12/2000",
-    "cover_state": "good"
+    "publisher": "Daron",
+    "publish_date": "1987/09/09",
+    "cover_state": "ol"
   }
 ]

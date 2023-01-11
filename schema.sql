@@ -1,3 +1,5 @@
+CREATE DATABASE 'catalog';
+
 CREATE TABLE games (
   id INT GENERATED ALWAYS AS IDENTITY,
   archived BOOLEAN,

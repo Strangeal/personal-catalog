@@ -53,7 +53,7 @@ class Read
     file.close
     authors
   end
-  
+
   def self.read_file(dir)
     return [] unless File.exist?(dir)
 

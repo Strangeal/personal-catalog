@@ -40,7 +40,6 @@ class Save
     File.write('./data/game.json', JSON.pretty_generate(game_arr))
   end
 
-
   def dave_author(author)
     author_arr = []
     author.each do |data|

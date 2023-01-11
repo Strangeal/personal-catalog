@@ -10,6 +10,7 @@ require 'date'
 require_relative 'read'
 require_relative 'save'
 
+# rubocop:disable Metrics/ClassLength
 class App
   def initialize
     @game = Read.new.read_game
@@ -179,3 +180,4 @@ class App
     exit
   end
 end
+# rubocop:enable Metrics/ClassLength

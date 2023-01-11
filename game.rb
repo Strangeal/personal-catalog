@@ -10,6 +10,8 @@ class Game < Item
     @last_played_at = last_played_at
     @archived = can_be_archived?
   end
+  
+  private
 
   def can_be_archived?
     @archived = super && Date.today.year - Date.parse(@last_played_at).year > 2

@@ -101,6 +101,17 @@ rspec
 - Twitter: [Ndikuma38670724](https://twitter.com/Ndikuma38670724)
 - LinkedIn: [Ndikumana Isaie](https://www.linkedin.com/in/ndikumanaisaie/)
 
+👤 **Amine Ouassef**
+- GitHub: [@ouasamine](https://github.com/ouasamine)
+- Twitter: [@ouass_amine](https://twitter.com/ouass_amine)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/amine-ouassef/)
+
+👤 **Justice Bajeri**
+- GitHub: [Link to Github Profile](https://github.com/Strangeal)
+- Twitter: [Link to Twitter Profile](https://twitter.com/Str_angeal)
+- LinkedIn: [Link to LinkedIn Profile](https://www.linkedin.com/in/justice-bajeri-0b7211243/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>

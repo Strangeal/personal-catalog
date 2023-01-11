@@ -1,3 +1,5 @@
+require 'colorize'
+require 'date'
 require_relative 'prompt'
 require_relative 'item'
 require_relative 'game'
@@ -6,7 +8,6 @@ require_relative 'music_album'
 require_relative 'genre'
 require_relative 'book'
 require_relative 'label'
-require 'date'
 require_relative 'read'
 require_relative 'save'
 
@@ -56,7 +57,7 @@ class App
         option = gets.chomp
         @labels[option.to_i]
       else
-        print 'invalid 😬 entry'.upcase
+        print 'invalid 😬 entry'.upcase.red
       end
     else
       add_label
@@ -64,7 +65,7 @@ class App
   end
 
   def list_all_books
-    puts 'No Books available 😔'.upcase if @books.empty?
+    puts 'No Books available 😔'.upcase.light_red if @books.empty?
     @books.each_with_index do |book, i|
       puts 'Available books 📚'.upcase
       puts "#{i}) cover_state: #{book.cover_state} | publisher: #{book.publisher} | publish_date:#{book.publish_date}"
@@ -74,7 +75,7 @@ class App
 
   def list_all_labels
     if @labels.empty?
-      puts 'You have not added any labels yet 😬'.upcase
+      puts 'You have not added any labels yet 😬'.upcase.light_red
     else
       @labels.each_with_index do |label, index|
         puts "#{index}) Title: #{label.title}, Color: #{label.color}"
@@ -84,7 +85,7 @@ class App
   end
 
   def default_return
-    puts "\n Hit any key to return to menu"
+    puts "\n Hit any key to return to menu".yellow
     gets.chomp
     LibraryMenu.new.menu
   end
@@ -123,7 +124,7 @@ class App
   end
 
   def list_games
-    puts "\n No Games available 😔".upcase if @game.empty?
+    puts "\n No Games available 😔".upcase if @game.empty?.light_red
     @game.each_with_index do |list, i|
       puts 'Available games '.upcase
       puts "#{i}) Multiplayer: #{list.multiplayer} | Last-Played: #{list.last_played_at}"
@@ -132,7 +133,7 @@ class App
   end
 
   def list_authors
-    puts "\n No author added 😬".upcase if @authors.empty?
+    puts "\n No author added 😬".upcase.light_red if @authors.empty?
 
     @authors.each_with_index do |list, i|
       puts 'Available authors '.upcase
@@ -158,7 +159,7 @@ class App
   end
 
   def list_all_music
-    puts 'No music 🎧 album available 😔'.upcase if @music_album.empty?
+    puts 'No music 🎧 album available 😔'.upcase.light_red if @music_album.empty?
     @music_album.each_with_index do |song, i|
       puts "#{i}) Publish Date: #{song.publish_date} | Spotify: #{song.on_spotify}"
     end
@@ -166,7 +167,7 @@ class App
   end
 
   def list_all_genres
-    puts 'No genre available 😔'.upcase if @genres.empty?
+    puts 'No genre available 😔'.upcase.light_red if @genres.empty?
     @genres.each_with_index do |genre, i|
       puts "#{i}) Genre: #{genre.name} "
     end
@@ -184,7 +185,7 @@ class App
     Save.new.save_game(@game)
     Save.save_music_to_file(@music_album, './data/music.json')
     Save.new.save_author(@authors)
-    puts "\n Thanks 🤗 for using this app".upcase
+    puts "\n Thanks 🤗 for using this app".upcase.green
     exit
   end
 end

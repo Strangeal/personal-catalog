@@ -1,3 +1,5 @@
+require 'colorize'
+
 class LibraryMenu
   def menu
     list = '
@@ -14,6 +16,6 @@ class LibraryMenu
     11 - Exit
     '
     puts "\n Please choose an option from the list below"
-    puts list
+    puts list.blue
   end
 end

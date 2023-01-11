@@ -6,23 +6,23 @@ describe MusicAlbum do
   genre = Genre.new('Folk')
   music_album.add_genre(genre)
 
-  it "sould be valid instance" do 
+  it 'sould be valid instance' do
     expect(music_album).to be_instance_of MusicAlbum
   end
 
-  it "archived property should be false" do
+  it 'archived property should be false' do
     expect(music_album.archived).to be false
   end
 
-  it "on_spotify property should be true" do
+  it 'on_spotify property should be true' do
     expect(music_album.on_spotify).to be true
   end
 
-  it "genre property should have a Ganre object" do
+  it 'genre property should have a Ganre object' do
     expect(music_album.genre).to be_instance_of Genre
   end
 
-  it "genre object should have name property of Folk" do
+  it 'genre object should have name property of Folk' do
     expect(music_album.genre.name).to eq 'Folk'
   end
 end

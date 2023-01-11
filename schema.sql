@@ -14,3 +14,19 @@ CREATE TABLE author (
   PRIMARY KEY(id),
   FOREIGN KEY(items) REFERENCES(Item)
 )
+
+CREATE TABLE music_album (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  archived BOOLEAN,
+  on_spotify BOOLEAN,
+  publish_date DATE,
+  genre VARCHAR(100),
+  PRIMARY KEY(id),
+  FOREIGN KEY(genre) REFERENCES genres(name)
+)
+
+CREATE TABLE genres (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(100),
+  PRIMARY KEY(id)
+)

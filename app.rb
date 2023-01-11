@@ -2,6 +2,8 @@ require_relative 'prompt'
 require_relative 'item'
 require_relative 'game'
 require_relative 'menu'
+require_relative 'music_album'
+require_relative 'genre'
 require_relative 'book'
 require_relative 'label'
 require 'date'
@@ -12,8 +14,9 @@ class App
   def initialize
     @game = Read.new.read_game
     @books = Read.new.read_author
-    @labels = []
-    @game = []
+    @labels = Read.new.load_labels_from_file
+    @genres = []
+    @music_album = Read.get_music_data(Read.read_file('./data/music.json'), @genres)
     @authors = []
   end
 
@@ -93,6 +96,16 @@ class App
     default_return
   end
 
+  def add_author
+    print 'First name: '
+    first_name = gets.chomp
+    print 'Second name: '
+    second_name = gets.chomp
+    author_data = Author.new(first_name, second_name)
+    @author << author_data
+    default_return
+  end
+
   def multiplayer?
     puts 'Multiple player game?[Y/N]'
     multiplayer = gets.chomp.upcase
@@ -123,8 +136,45 @@ class App
     default_return
   end
 
+  def add_musicalbum
+    puts 'Enter Publish Date:'
+    publish_date = gets.chomp
+    puts 'Is The Song On Spotify: [Y/N]'
+    on_spotify = gets.chomp
+    puts 'Specify The Genre:'
+    input_genre = gets.chomp
+    genre = Genre.new(input_genre)
+    @genres << genre
+    song = MusicAlbum.new(publish_date, check_input(on_spotify))
+    song.add_genre(genre)
+    @music_album << song
+    default_return
+  end
+
+  def list_all_music
+    @music_album.each_with_index do |song, i|
+      puts "#{i} - Publish Date: #{song.publish_date} ; Spotify: #{song.on_spotify}"
+    end
+    default_return
+  end
+
+  def list_all_genres
+    @genres.each_with_index do |genre, i|
+      puts "#{i} - Genre: #{genre.name} "
+    end
+    default_return
+  end
+
+  def check_input(input)
+    true if input.upcase == 'Y'
+    false
+  end
+
   def exit_app
+    Save.new.save_book(@books)
+    Save.new.save_label(@labels)
     Save.new.save_game(@game)
+    Save.save_music_to_file(@music_album, './data/music.json')
     puts "\n Thanks for using this app"
     exit
   end

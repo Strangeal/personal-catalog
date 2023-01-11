@@ -124,7 +124,7 @@ class App
   end
 
   def list_games
-    puts "\n No Games available 😔".upcase if @game.empty?.light_red
+    puts "\n No Games available 😔".upcas.light_red if @game.empty?
     @game.each_with_index do |list, i|
       puts 'Available games '.upcase
       puts "#{i}) Multiplayer: #{list.multiplayer} | Last-Played: #{list.last_played_at}"

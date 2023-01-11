@@ -10,6 +10,12 @@ CREATE TABLE item (
   archived BOOLEAN,
 );
 
+CREATE TABLE books(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  publisher VARCHAR(255),
+  cover_state VARCHAR(255),
+  FOREIGN KEY(id) REFERENCES item(id)
+);
 
 CREATE TABLE games (
   id INT GENERATED ALWAYS AS IDENTITY,

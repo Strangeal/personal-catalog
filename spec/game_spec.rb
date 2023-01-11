@@ -16,7 +16,7 @@ describe Game do
   end
 
   it 'can_be_archived? should return true' do
-    check = @new_game.can_be_archived?
+    check = @new_game.archived
     expect(check).to be_truthy
   end
 

@@ -3,18 +3,17 @@ class LibraryMenu
     list = '
     1 - List all books
     2 - List all music albums
-    3 - List all movies
-    4 - List of games
-    5 - List all genres
-    6 - List all labels
-    7 - List all authors
-    8 - List all sources
-    9 - Add a book
-    10 - Add a music album
-    11 - Add a author
-    12 - Add a game
-    13 - Exit
+    3 - List of games
+    4 - List all genres
+    5 - List all labels
+    6 - List all authors
+    7 - Add a book
+    8 - Add a music album
+    9 - Add a author
+    10 - Add a game
+    11 - Exit
     '
+    puts "\n Please choose an option from the list below"
     puts list
   end
 end

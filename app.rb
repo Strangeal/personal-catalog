@@ -21,18 +21,18 @@ class App
   end
 
   def add_book
-    print 'publisher: '
+    print "\n Publisher: "
     publisher = gets.chomp
-    print 'date of publish: '
+    print 'Date of publish: '
     publish_date = gets.chomp
-    print 'cover state: '
+    print 'Cover state: '
     cover_state = gets.chomp
     label = handle_label
     book = Book.new(publisher, cover_state, publish_date)
     label.add_item(book)
     @labels << label unless @labels.include?(label)
     @books << book
-    puts 'Book added successfully'
+    puts 'Book added successfully 🤗'
   end
 
   def add_label
@@ -56,7 +56,7 @@ class App
         option = gets.chomp
         @labels[option.to_i]
       else
-        print 'invalid entry'
+        print 'invalid 😬 entry'.upcase
       end
     else
       add_label
@@ -64,20 +64,23 @@ class App
   end
 
   def list_all_books
-    puts 'No Books available 😔' if @books.empty?
-    puts 'Available books'
-    @books.each_with_index do |book, index|
-      puts "#{index}) cover_state: #{book.cover_state}, publisher: #{book.publisher}, publish_date:#{book.publish_date}"
+    puts 'No Books available 😔'.upcase if @books.empty?
+    @books.each_with_index do |book, i|
+      puts 'Available books 📚'.upcase
+      puts "#{i}) cover_state: #{book.cover_state} | publisher: #{book.publisher} | publish_date:#{book.publish_date}"
     end
     default_return
   end
 
   def list_all_labels
     if @labels.empty?
-      puts 'You have not added any labels yet'.upcase
+      puts 'You have not added any labels yet 😬'.upcase
     else
-      @labels.each_with_index { |label, index| puts "#{index}) Title: #{label.title}, Color: #{label.color}" }
+      @labels.each_with_index do |label, index|
+        puts "#{index}) Title: #{label.title}, Color: #{label.color}"
+      end
     end
+    default_return
   end
 
   def default_return
@@ -88,11 +91,11 @@ class App
 
   def add_game
     multiplayer = multiplayer?
-    puts 'When was the last time you played this game '
+    puts "\n When was the last time you played this game "
     last_played = gets.chomp
     new_game = Game.new(last_played, multiplayer: multiplayer)
     @game << new_game
-    puts 'Game added 🤗 successfully'
+    puts 'Game added 🤗 successfully'.upcase
     default_return
   end
 
@@ -103,11 +106,12 @@ class App
     second_name = gets.chomp
     author_data = Author.new(first_name, second_name)
     @authors << author_data
+    puts 'Author added successfully 🤗'
     default_return
   end
 
   def multiplayer?
-    puts 'Multiple player game?[Y/N]'
+    print 'Multiple player game?[Y/N]: '
     multiplayer = gets.chomp.upcase
     case multiplayer
     when 'Y' then true
@@ -119,48 +123,52 @@ class App
   end
 
   def list_games
-    puts "\n No Games available 😔" if @game.empty?
-    puts 'Available games '
+    puts "\n No Games available 😔".upcase if @game.empty?
     @game.each_with_index do |list, i|
-      puts "#{i}) Multiplayer: #{list.multiplayer} Last-Played: #{list.last_played_at}"
+      puts 'Available games '.upcase
+      puts "#{i}) Multiplayer: #{list.multiplayer} | Last-Played: #{list.last_played_at}"
     end
     default_return
   end
 
   def list_authors
-    puts "\n No author added" if @authors.empty?
-    puts 'Available authors '
+    puts "\n No author added 😬".upcase if @authors.empty?
+
     @authors.each_with_index do |list, i|
-      puts "#{i}) First-Name: #{list.first_name} Last-Name: #{list.second_name}"
+      puts 'Available authors '.upcase
+      puts "#{i}) First-Name: #{list.first_name} | Last-Name: #{list.second_name}"
     end
     default_return
   end
 
   def add_musicalbum
-    puts 'Enter Publish Date:'
+    print 'Enter Publish Date: '
     publish_date = gets.chomp
-    puts 'Is The Song On Spotify: [Y/N]'
+    print 'Is The Song On Spotify: [Y/N] '
     on_spotify = gets.chomp
-    puts 'Specify The Genre:'
+    print 'Specify The Genre: '
     input_genre = gets.chomp
     genre = Genre.new(input_genre)
     @genres << genre
     song = MusicAlbum.new(publish_date, check_input(on_spotify))
     song.add_genre(genre)
     @music_album << song
+    puts 'Music album added successfully 🤗'
     default_return
   end
 
   def list_all_music
+    puts 'No music 🎧 album available 😔'.upcase if @music_album.empty?
     @music_album.each_with_index do |song, i|
-      puts "#{i} - Publish Date: #{song.publish_date} ; Spotify: #{song.on_spotify}"
+      puts "#{i}) Publish Date: #{song.publish_date} | Spotify: #{song.on_spotify}"
     end
     default_return
   end
 
   def list_all_genres
+    puts 'No genre available 😔'.upcase if @genres.empty?
     @genres.each_with_index do |genre, i|
-      puts "#{i} - Genre: #{genre.name} "
+      puts "#{i}) Genre: #{genre.name} "
     end
     default_return
   end
@@ -176,7 +184,7 @@ class App
     Save.new.save_game(@game)
     Save.save_music_to_file(@music_album, './data/music.json')
     Save.new.save_author(@authors)
-    puts "\n Thanks for using this app"
+    puts "\n Thanks 🤗 for using this app".upcase
     exit
   end
 end

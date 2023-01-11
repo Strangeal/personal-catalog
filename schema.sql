@@ -1,5 +1,16 @@
 CREATE DATABASE 'catalog';
 
+-- Create a Item class table
+CREATE TABLE item (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  genre TEXT,
+  author TEXT,
+  label TEXT,
+  publish_date DATE,
+  archived BOOLEAN,
+);
+
+
 CREATE TABLE games (
   id INT GENERATED ALWAYS AS IDENTITY,
   archived BOOLEAN,

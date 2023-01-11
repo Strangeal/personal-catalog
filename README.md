@@ -18,7 +18,7 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 OOP Library <a name="about-project"></a>
+# 📖 personal-catalog <a name="about-project"></a>
 
 > In this project, we created a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games
 

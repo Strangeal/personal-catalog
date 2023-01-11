@@ -10,14 +10,14 @@ require 'date'
 require_relative 'read'
 require_relative 'save'
 
+# rubocop:disable Metrics/ClassLength
 class App
   def initialize
     @game = Read.new.read_game
-    @books = Read.new.load_books_from_file
+    @books = Read.new.read_author
     @labels = Read.new.load_labels_from_file
     @genres = []
     @music_album = Read.get_music_data(Read.read_file('./data/music.json'), @genres)
-    @game = []
     @authors = []
   end
 
@@ -180,3 +180,4 @@ class App
     exit
   end
 end
+# rubocop:enable Metrics/ClassLength
